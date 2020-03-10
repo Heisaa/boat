@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sea.material" type="Material" id=2]
+[ext_resource path="res://Sea.gd" type="Script" id=3]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 3
+octaves = 6
+period = 20.0
+lacunarity = 1.5
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="CapsuleMesh" id=3]
+
+[sub_resource type="CapsuleShape" id=4]
+
+[node name="Main" type="Spatial"]
+
+[node name="Sea1" type="Spatial" parent="."]
+script = ExtResource( 3 )
+noise = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 33.3837, 38.0565 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.708056, 0.706156, 0, -0.706156, 0.708056, 0, 10.5552, 12.7044 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6601, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 4 )
