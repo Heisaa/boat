@@ -81,7 +81,7 @@ lacunarity = 2.05
 [node name="Spatial" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.541675, 0.454519, 0, 0.642787, 0.766044, -0.707107, -0.541675, 0.454519, 12, 12, 12 )
+transform = Transform( 0.707107, -0.541675, 0.454519, 0, 0.642787, 0.766045, -0.707107, -0.541675, 0.454519, 12, 21.964, 18.8004 )
 
 [node name="Sea" type="ImmediateGeometry" parent="."]
 material_override = SubResource( 2 )
